@@ -80,7 +80,7 @@ const HeroSlider = () => {
               <span className="inline-block font-sans text-xs font-medium uppercase tracking-[0.35em] text-secondary-foreground/60 mb-6">
                 {slide.tag}
               </span>
-              <h1 className="font-sans text-5xl md:text-7xl lg:text-8xl font-bold text-secondary-foreground leading-[1.05] whitespace-pre-line mb-8">
+              <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-extralight text-secondary-foreground leading-[1.05] whitespace-pre-line mb-8">
                 {slide.title}
               </h1>
               <p className="text-secondary-foreground/70 font-sans text-base md:text-lg max-w-xl mb-10 font-light leading-relaxed">
