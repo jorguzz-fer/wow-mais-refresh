@@ -68,7 +68,7 @@ const HeroSlider = () => {
 
       {/* Content */}
       <div className="relative z-20 container h-full flex items-center">
-        <div className="max-w-2xl">
+        <div className="max-w-4xl">
           <AnimatePresence mode="wait">
             <motion.div
               key={current}
@@ -77,13 +77,13 @@ const HeroSlider = () => {
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <span className="inline-block text-primary font-sans text-sm font-semibold uppercase tracking-widest mb-4">
+              <span className="inline-block font-sans text-xs font-medium uppercase tracking-[0.35em] text-secondary-foreground/60 mb-6">
                 {slide.tag}
               </span>
-              <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-secondary-foreground leading-tight whitespace-pre-line mb-6">
+              <h1 className="font-sans text-5xl md:text-7xl lg:text-8xl font-bold text-secondary-foreground leading-[1.05] whitespace-pre-line mb-8">
                 {slide.title}
               </h1>
-              <p className="text-secondary-foreground/80 font-sans text-lg md:text-xl max-w-lg mb-8">
+              <p className="text-secondary-foreground/70 font-sans text-base md:text-lg max-w-xl mb-10 font-light leading-relaxed">
                 {slide.subtitle}
               </p>
               <a
