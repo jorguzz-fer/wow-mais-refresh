@@ -1,30 +1,63 @@
 import { motion } from "framer-motion";
-import { Heart, Shield, Tag, Flower2 } from "lucide-react";
+import { Heart, Activity, Pill, Shield, Tag } from "lucide-react";
 
 const services = [
   {
     icon: Heart,
-    title: "WOW+Saúde",
-    description: "Telemedicina 24h, descontos em farmácias, consultas online e muito mais para cuidar da sua saúde.",
-    link: "https://app.wowmais.com.br/subscription-page/rebqcftkr4oxb4z49hrtf1yb",
+    title: "WOW+ Saúde",
+    description: "Atendimento médico rápido, digital e presencial.",
+    features: [
+      "Clínico geral e pediatria 24h",
+      "Especialistas online",
+      "Consultas presenciais com desconto",
+      "Rede de clínicas parceiras"
+    ],
+    link: "https://app.wowmais.com.br/",
+  },
+  {
+    icon: Activity,
+    title: "WOW+ Exames",
+    description: "Economize em exames laboratoriais e diagnósticos.",
+    features: [
+      "Laboratórios parceiros",
+      "Preços reduzidos",
+      "Atendimento em diversas cidades"
+    ],
+    link: "https://app.wowmais.com.br/",
+  },
+  {
+    icon: Pill,
+    title: "WOW+ Farmácia",
+    description: "Descontos em milhares de medicamentos.",
+    features: [
+      "Até 90% de economia",
+      "Rede nacional de farmácias",
+      "Compra simples e rápida"
+    ],
+    link: "https://app.wowmais.com.br/",
   },
   {
     icon: Shield,
-    title: "WOW+Assistencial",
-    description: "Assistência e segurança quando você mais precisa. Serviços de emergência para você e sua família.",
-    link: "https://app.wowmais.com.br/subscription-page/lu2p0s9qhnd8ud08t1omhc11",
+    title: "WOW+ Assistências",
+    description: "Proteção para você e sua família no dia a dia.",
+    features: [
+      "Assistência residencial",
+      "Assistência automotiva",
+      "Assistência pet",
+      "Segurança familiar"
+    ],
+    link: "https://app.wowmais.com.br/",
   },
   {
     icon: Tag,
-    title: "WOW+Clube",
-    description: "Descontos e cashback em mais de 10 mil estabelecimentos em todo o Brasil.",
-    link: "https://app.wowmais.com.br/subscription-page/zgnbp66s9yejzr7g387nn7jf",
-  },
-  {
-    icon: Flower2,
-    title: "WOW+SAF",
-    description: "Serviço de assistência funeral completo para garantir tranquilidade nos momentos difíceis.",
-    link: "https://app.wowmais.com.br/subscription-page/cf5uffvmnpi7p53vrlnp7xpj",
+    title: "WOW+ Clube",
+    description: "Benefícios e cashback em milhares de lojas.",
+    features: [
+      "Descontos exclusivos",
+      "Cashback em compras",
+      "Ofertas especiais"
+    ],
+    link: "https://app.wowmais.com.br/",
   },
 ];
 
@@ -42,15 +75,14 @@ const ServicesSection = () => {
             Nossos Serviços
           </span>
           <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground mt-3">
-            Soluções completas para{" "}
-            <span className="text-gradient">você e sua família</span>
+            O seu Super App de <span className="text-gradient">Saúde e Benefícios</span>
           </h2>
           <p className="text-muted-foreground font-sans text-lg mt-4 max-w-2xl mx-auto">
-            Oferecemos planos acessíveis de saúde, assistência, clube de vantagens e muito mais.
+            A WOW+ conecta você a serviços essenciais com qualidade superior e preço acessível.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, i) => (
             <motion.a
               key={service.title}
@@ -61,19 +93,28 @@ const ServicesSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="group bg-card rounded-2xl p-8 shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1 border border-border"
+              className="group bg-card rounded-2xl p-8 shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1 border border-border flex flex-col h-full"
             >
-              <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary transition-colors">
+              <div className="w-14 h-14 rounded-xl bg-orange/10 flex items-center justify-center mb-6 group-hover:bg-primary transition-colors">
                 <service.icon className="w-7 h-7 text-primary group-hover:text-primary-foreground transition-colors" />
               </div>
               <h3 className="font-display text-xl font-bold text-foreground mb-3">
                 {service.title}
               </h3>
-              <p className="text-muted-foreground font-sans text-sm leading-relaxed">
+              <p className="text-muted-foreground font-sans text-base leading-relaxed mb-6">
                 {service.description}
               </p>
-              <span className="inline-block mt-4 text-primary font-sans text-sm font-semibold group-hover:translate-x-1 transition-transform">
-                Saiba mais →
+              
+              <ul className="mt-auto space-y-2 mb-6">
+                {service.features.map((feature, idx) => (
+                  <li key={idx} className="flex items-start gap-2 text-sm text-foreground/80 font-medium">
+                    <span className="text-orange mt-0.5">✔</span> {feature}
+                  </li>
+                ))}
+              </ul>
+
+              <span className="inline-block text-primary font-sans text-sm font-semibold group-hover:translate-x-1 transition-transform">
+                Assinar Plano →
               </span>
             </motion.a>
           ))}

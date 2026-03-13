@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown, Phone } from "lucide-react";
-import logo from "@/assets/logo-wowmais.png";
+const logoDark = "/logo/logo-dark.png";
+const logoLight = "/logo/logo-light.png";
 
 const navItems = [
   { label: "Home", href: "#home" },
@@ -63,7 +64,7 @@ const Header = () => {
         <div
           className={`transition-all duration-500 ${
             scrolled
-              ? "container max-w-6xl mx-auto bg-navy/80 backdrop-blur-xl rounded-full shadow-lg border border-secondary-foreground/10"
+              ? "container max-w-6xl mx-auto bg-navy/30 backdrop-blur-xl rounded-full shadow-lg border border-secondary-foreground/10"
               : "bg-background"
           }`}
         >
@@ -77,10 +78,10 @@ const Header = () => {
             {/* Logo */}
             <a href="#home" className="flex-shrink-0 flex items-center">
               <img
-                src={logo}
+                src={scrolled ? logoLight : logoDark}
                 alt="WOW Mais"
                 className={`transition-all duration-300 ${
-                  scrolled ? "h-8 brightness-0 invert" : "h-12"
+                  scrolled ? "h-8" : "h-12"
                 }`}
               />
               {scrolled && (

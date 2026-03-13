@@ -17,17 +17,17 @@
     --popover-foreground: 220 25% 10%;
 
     /* Orange brand */
-    --primary: 28 100% 50%;
+    --primary: 29 98% 53%;
     --primary-foreground: 0 0% 100%;
 
-    /* Dark navy */
-    --secondary: 220 40% 13%;
+    /* Dark purple (from WOW Mais) */
+    --secondary: 320 85% 11%;
     --secondary-foreground: 0 0% 100%;
 
     --muted: 220 15% 95%;
     --muted-foreground: 220 10% 45%;
 
-    --accent: 28 100% 50%;
+    --accent: 29 98% 53%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
@@ -35,25 +35,25 @@
 
     --border: 220 15% 90%;
     --input: 220 15% 90%;
-    --ring: 28 100% 50%;
+    --ring: 29 98% 53%;
 
     --radius: 0.5rem;
 
     /* Custom tokens */
-    --navy: 220 40% 13%;
-    --navy-light: 220 30% 20%;
-    --navy-dark: 220 45% 8%;
-    --orange: 28 100% 50%;
-    --orange-light: 28 100% 60%;
-    --orange-dark: 28 100% 42%;
+    --navy: 320 85% 11%;
+    --navy-light: 320 85% 18%;
+    --navy-dark: 320 85% 8%;
+    --orange: 29 98% 53%;
+    --orange-light: 29 98% 63%;
+    --orange-dark: 29 98% 43%;
     --warm-gray: 30 5% 96%;
     --warm-gray-dark: 30 5% 88%;
 
-    --gradient-hero: linear-gradient(135deg, hsl(220 40% 13%) 0%, hsl(220 45% 8%) 100%);
-    --gradient-orange: linear-gradient(135deg, hsl(28 100% 50%) 0%, hsl(28 100% 42%) 100%);
-    --shadow-card: 0 4px 24px -4px hsl(220 40% 13% / 0.08);
-    --shadow-card-hover: 0 12px 40px -8px hsl(220 40% 13% / 0.15);
-    --shadow-orange: 0 8px 24px -4px hsl(28 100% 50% / 0.35);
+    --gradient-hero: linear-gradient(135deg, hsl(320 85% 11%) 0%, hsl(320 85% 8%) 100%);
+    --gradient-orange: linear-gradient(135deg, hsl(29 98% 53%) 0%, hsl(29 98% 43%) 100%);
+    --shadow-card: 0 4px 24px -4px hsl(320 85% 11% / 0.08);
+    --shadow-card-hover: 0 12px 40px -8px hsl(320 85% 11% / 0.15);
+    --shadow-orange: 0 8px 24px -4px hsl(29 98% 53% / 0.35);
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;

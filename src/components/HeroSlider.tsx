@@ -1,35 +1,11 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import heroSlide1 from "@/assets/hero-slide-1.jpg";
-import heroSlide2 from "@/assets/hero-slide-2.jpg";
-import heroSlide3 from "@/assets/hero-slide-3.jpg";
 
 const slides = [
-  {
-    image: heroSlide1,
-    tag: "saúde e serviços",
-    title: "Saúde Inteligente\nno Conforto da Sua Casa",
-    subtitle: "Cuidamos da sua saúde e da sua família com soluções inteligentes, acessíveis e completas. 24h por dia.",
-    cta: "Quero Saber Mais",
-    link: "https://app.wowmais.com.br/subscription-page/rebqcftkr4oxb4z49hrtf1yb",
-  },
-  {
-    image: heroSlide2,
-    tag: "para toda família",
-    title: "Proteção e\nBem-Estar Familiar",
-    subtitle: "Assistência e segurança quando você mais precisa. Planos para você e toda sua família.",
-    cta: "Conheça os Planos",
-    link: "https://app.wowmais.com.br/subscription-page/lu2p0s9qhnd8ud08t1omhc11",
-  },
-  {
-    image: heroSlide3,
-    tag: "vantagens exclusivas",
-    title: "Descontos e Cashback\nem Milhares de Lojas",
-    subtitle: "Clube de vantagens com descontos em mais de 10 mil estabelecimentos em todo o Brasil.",
-    cta: "Acessar WOW+Clube",
-    link: "https://app.wowmais.com.br/subscription-page/zgnbp66s9yejzr7g387nn7jf",
-  },
+  "/images/slide1-novo.jpg",
+  "/images/7.jpg",
+  "/images/4.jpg",
 ];
 
 const HeroSlider = () => {
@@ -42,8 +18,6 @@ const HeroSlider = () => {
     const timer = setInterval(next, 6000);
     return () => clearInterval(timer);
   }, [next]);
-
-  const slide = slides[current];
 
   return (
     <section id="home" className="relative h-[85vh] min-h-[600px] overflow-hidden">
@@ -59,8 +33,8 @@ const HeroSlider = () => {
         >
           <div className="absolute inset-0 bg-navy-dark/70 z-10" />
           <img
-            src={slide.image}
-            alt={slide.title}
+            src={slides[current]}
+            alt="Fundo WOW Mais"
             className="w-full h-full object-cover"
           />
         </motion.div>
@@ -69,48 +43,40 @@ const HeroSlider = () => {
       {/* Content */}
       <div className="relative z-20 container h-full flex items-center">
         <div className="max-w-4xl">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={current}
+           <motion.div
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <span className="inline-block font-sans text-xs font-medium uppercase tracking-[0.35em] text-secondary-foreground/60 mb-6">
-                {slide.tag}
+              <span className="inline-block font-sans text-xs font-medium uppercase tracking-[0.35em] text-orange mb-6 bg-orange/10 px-3 py-1 rounded-full">
+                Plataforma de Saúde Inteligente
               </span>
-              <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-extralight text-secondary-foreground leading-[1.05] whitespace-pre-line mb-8">
-                {slide.title}
+              <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-extralight text-secondary-foreground leading-[1.05] whitespace-pre-line mb-6">
+                Cuidar da sua saúde e da sua família <span className="font-bold">ficou mais simples.</span>
               </h1>
-              <p className="text-secondary-foreground/70 font-sans text-base md:text-lg max-w-xl mb-10 font-light leading-relaxed">
-                {slide.subtitle}
+              <p className="text-secondary-foreground/70 font-sans text-base md:text-lg max-w-xl mb-8 font-light leading-relaxed">
+                A WOW+ conecta você a médicos, clínicas, exames, medicamentos e benefícios em uma única assinatura acessível.
               </p>
+              
+              <ul className="mb-10 space-y-3 font-sans text-secondary-foreground/90 font-medium">
+                <li className="flex items-center gap-3"><span className="text-orange">✔</span> Médicos online 24h</li>
+                <li className="flex items-center gap-3"><span className="text-orange">✔</span> Rede de clínicas e especialistas</li>
+                <li className="flex items-center gap-3"><span className="text-orange">✔</span> Exames e consultas com descontos</li>
+                <li className="flex items-center gap-3"><span className="text-orange">✔</span> Medicamentos até 90% mais baratos</li>
+              </ul>
+              
               <a
-                href={slide.link}
+                href="https://app.wowmais.com.br/"
                 className="inline-block bg-primary text-primary-foreground px-8 py-4 rounded-full font-sans font-semibold text-base hover:bg-orange-dark transition-colors shadow-orange"
               >
-                {slide.cta}
+                Assinar Agora
               </a>
             </motion.div>
-          </AnimatePresence>
         </div>
       </div>
 
-      {/* Nav arrows */}
-      <button
-        onClick={prev}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-secondary-foreground/10 backdrop-blur-sm flex items-center justify-center text-secondary-foreground hover:bg-primary transition-colors"
-      >
-        <ChevronLeft className="w-5 h-5" />
-      </button>
-      <button
-        onClick={next}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-secondary-foreground/10 backdrop-blur-sm flex items-center justify-center text-secondary-foreground hover:bg-primary transition-colors"
-      >
-        <ChevronRight className="w-5 h-5" />
-      </button>
-
+      {/* Nav arrows - Hidden since content is static, but keeping dots for visual */}
+      
       {/* Dots */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex gap-3">
         {slides.map((_, i) => (

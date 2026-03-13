@@ -1,4 +1,4 @@
-import logo from "@/assets/logo-wowmais.png";
+const logo = "/logo/logo-light.png";
 import { Instagram, Facebook, Linkedin, Youtube } from "lucide-react";
 
 const Footer = () => {
@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <div className="md:col-span-1">
-            <img src={logo} alt="WOW Mais" className="h-10 mb-4 brightness-0 invert" />
+            <img src={logo} alt="WOW Mais" className="h-10 mb-4" />
             <p className="font-sans text-sm text-secondary-foreground/60 leading-relaxed">
               Cuidando do que mais importa. Saúde, assistência e vantagens para você e toda sua família.
             </p>
@@ -61,9 +61,12 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-secondary-foreground/10 pt-8 text-center">
-          <p className="font-sans text-sm text-secondary-foreground/40">
-            © {new Date().getFullYear()} WOW Mais — Saúde e Serviços. Todos os direitos reservados.
+        <div className="border-t border-secondary-foreground/10 pt-8 mt-12 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
+          <p className="font-sans text-xs text-secondary-foreground/40 max-w-3xl">
+            A WOW+ é uma plataforma de serviços e benefícios em saúde, que oferece acesso a telemedicina, descontos em consultas, exames e medicamentos por meio de parceiros e rede credenciada. A WOW+ não é plano de saúde.
+          </p>
+          <p className="font-sans text-xs text-secondary-foreground/40 shrink-0">
+            © {new Date().getFullYear()} WOW Mais. Todos os direitos reservados.
           </p>
         </div>
       </div>

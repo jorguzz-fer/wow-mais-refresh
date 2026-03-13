@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import aboutImage from "@/assets/about-image.jpg";
+const aboutImage = "/images/5.webp";
 
 const stats = [
   { value: "10k+", label: "Estabelecimentos Parceiros" },
@@ -19,28 +19,34 @@ const AboutSection = () => {
             viewport={{ once: true }}
           >
             <span className="text-primary font-sans text-sm font-semibold uppercase tracking-widest">
-              Quem Somos
+              Como funciona
             </span>
             <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground mt-3 leading-tight">
-              O que mais importa?{" "}
-              <span className="text-gradient">Cuidar de você.</span>
+              Saúde acessível <span className="text-gradient">de verdade.</span>
             </h2>
             <p className="text-muted-foreground font-sans text-lg mt-6 leading-relaxed">
-              A WOW Mais é uma empresa de saúde e serviços que acredita que todos
-              merecem acesso a cuidados de qualidade. Nossos planos são pensados
-              para oferecer saúde inteligente, assistência completa e vantagens
-              exclusivas para você e toda sua família.
+              Com a WOW+ você tem acesso a uma rede completa de saúde e benefícios. 
+              Tudo funciona de forma simples:
             </p>
-            <p className="text-muted-foreground font-sans text-lg mt-4 leading-relaxed">
-              Com soluções 100% digitais e acessíveis, estamos transformando a
-              forma como as pessoas cuidam da saúde no Brasil.
+            
+            <ul className="mt-8 space-y-4 font-sans text-foreground/80 font-medium text-lg">
+              <li className="flex items-center gap-4 border-l-2 border-orange pl-4 bg-muted/40 py-2 rounded-r-lg">
+                <span className="flex-shrink-0 w-8 h-8 rounded-full bg-orange text-white flex items-center justify-center font-bold text-sm">1</span>
+                Ative sua assinatura
+              </li>
+              <li className="flex items-center gap-4 border-l-2 border-orange pl-4 bg-muted/40 py-2 rounded-r-lg">
+                <span className="flex-shrink-0 w-8 h-8 rounded-full bg-orange text-white flex items-center justify-center font-bold text-sm">2</span>
+                Escolha o atendimento que precisa
+              </li>
+              <li className="flex items-center gap-4 border-l-2 border-orange pl-4 bg-muted/40 py-2 rounded-r-lg">
+                <span className="flex-shrink-0 w-8 h-8 rounded-full bg-orange text-white flex items-center justify-center font-bold text-sm">3</span>
+                Use quando quiser — online ou presencial
+              </li>
+            </ul>
+
+            <p className="font-sans text-lg mt-8 leading-relaxed font-semibold text-foreground">
+              Sem burocracia, sem filas e com preços acessíveis.
             </p>
-            <a
-              href="#services"
-              className="inline-block mt-8 bg-primary text-primary-foreground px-8 py-4 rounded-full font-sans font-semibold hover:bg-orange-dark transition-colors shadow-orange"
-            >
-              Conheça Nossos Serviços
-            </a>
           </motion.div>
 
           <motion.div
@@ -49,11 +55,13 @@ const AboutSection = () => {
             viewport={{ once: true }}
             className="relative"
           >
-            <img
-              src={aboutImage}
-              alt="Equipe WOW Mais"
-              className="rounded-2xl shadow-card-hover w-full"
-            />
+            <div className="relative rounded-3xl overflow-hidden shadow-card-hover">
+              <img
+                src={aboutImage}
+                alt="Equipe WOW Mais"
+                className="w-full aspect-[4/5] md:aspect-[3/4] object-cover object-top"
+              />
+            </div>
             {/* Stats overlay */}
             <div className="grid grid-cols-2 gap-4 mt-8">
               {stats.map((stat, i) => (
