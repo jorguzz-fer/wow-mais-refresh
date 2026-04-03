@@ -1,1 +1,30 @@
+# Dependencies
 node_modules
+
+# Build output
+dist
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode
+.idea
+
+# Assets source (não precisam ir pro repo)
+KV
+Docs-fornecedores
+_design_extract
+mockups
+referencias
+Logo/parceiros/*.af
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
