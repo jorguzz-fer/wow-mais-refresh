@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Heart, Activity, Pill, Shield, Tag } from "lucide-react";
+import { Heart, Heartbeat, Pill, ShieldCheck, Tag } from "@phosphor-icons/react";
 
 const services = [
   {
@@ -15,7 +15,7 @@ const services = [
     link: "https://app.wowmais.com.br/",
   },
   {
-    icon: Activity,
+    icon: Heartbeat,
     title: "WOW+ Exames",
     description: "Economize em exames laboratoriais e diagnósticos.",
     features: [
@@ -37,7 +37,7 @@ const services = [
     link: "https://app.wowmais.com.br/",
   },
   {
-    icon: Shield,
+    icon: ShieldCheck,
     title: "WOW+ Assistências",
     description: "Proteção para você e sua família no dia a dia.",
     features: [
@@ -96,7 +96,7 @@ const ServicesSection = () => {
               className="group bg-card rounded-2xl p-8 shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1 border border-border flex flex-col h-full"
             >
               <div className="w-14 h-14 rounded-xl bg-orange/10 flex items-center justify-center mb-6 group-hover:bg-primary transition-colors">
-                <service.icon className="w-7 h-7 text-primary group-hover:text-primary-foreground transition-colors" />
+                <service.icon size={30} weight="duotone" className="text-primary group-hover:text-primary-foreground transition-colors" />
               </div>
               <h3 className="font-display text-xl font-bold text-foreground mb-3">
                 {service.title}

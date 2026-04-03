@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle } from "@phosphor-icons/react";
 
 const reasons = [
   "Atendimento médico 24h",
@@ -37,7 +37,7 @@ const FeaturesSection = () => {
               transition={{ delay: i * 0.1 }}
               className="flex items-center gap-3 bg-navy-light/50 border border-secondary-foreground/10 px-6 py-4 rounded-xl backdrop-blur-sm"
             >
-              <CheckCircle2 className="text-orange w-6 h-6 flex-shrink-0" />
+              <CheckCircle size={24} weight="fill" className="text-orange flex-shrink-0" />
               <span className="font-sans text-base md:text-lg font-medium">{reason}</span>
             </motion.div>
           ))}

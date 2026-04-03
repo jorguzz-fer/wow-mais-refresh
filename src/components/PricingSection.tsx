@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Check } from "lucide-react";
+import { CheckCircle } from "@phosphor-icons/react";
 
 const plans = [
   {
@@ -112,7 +112,7 @@ const PricingSection = () => {
               <ul className="space-y-4 mb-8 flex-grow">
                 {plan.features.map((feature) => (
                   <li key={feature} className="flex items-start gap-3 font-sans text-base">
-                    <Check className={`w-5 h-5 flex-shrink-0 mt-0.5 ${plan.highlighted ? "text-white" : "text-orange"}`} />
+                    <CheckCircle size={20} weight="fill" className={`flex-shrink-0 mt-0.5 ${plan.highlighted ? "text-white" : "text-orange"}`} />
                     <span className={plan.highlighted ? "text-primary-foreground/90" : "text-secondary-foreground/80"}>
                       {feature}
                     </span>

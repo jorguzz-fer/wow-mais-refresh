@@ -1,32 +1,15 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown, Phone } from "lucide-react";
+import { List, X, CaretDown, Phone } from "@phosphor-icons/react";
 const logoDark = "/logo/logo-dark.png";
 const logoLight = "/logo/logo-light.png";
 
 const navItems = [
   { label: "Home", href: "#home" },
-  {
-    label: "Nossa Empresa",
-    href: "#about",
-    submenu: [
-      { label: "Quem Somos", href: "#about" },
-      { label: "Nossa Missão", href: "#about" },
-    ],
-  },
-  {
-    label: "Serviços",
-    href: "#services",
-    submenu: [
-      { label: "WOW+Saúde", href: "#services" },
-      { label: "WOW+Assistencial", href: "#services" },
-      { label: "WOW+Clube", href: "#services" },
-      { label: "WOW+SAF", href: "#services" },
-    ],
-  },
-  { label: "Oportunidade de Negócios", href: "#pricing" },
+  { label: "Para Empresa", href: "#about" },
+  { label: "Para Você", href: "#about" },
   { label: "Contato", href: "#contact" },
-  { label: "Insights", href: "#blog" },
+  { label: "Blog", href: "#blog" },
 ];
 
 const Header = () => {
@@ -71,8 +54,8 @@ const Header = () => {
           <div
             className={`flex items-center justify-between ${
               scrolled
-                ? "px-6 h-16"
-                : "container h-20"
+                ? "px-4 lg:px-6 h-16 lg:h-20"
+                : "container h-20 lg:h-24"
             }`}
           >
             {/* Logo */}
@@ -81,7 +64,7 @@ const Header = () => {
                 src={scrolled ? logoLight : logoDark}
                 alt="WOW Mais"
                 className={`transition-all duration-300 ${
-                  scrolled ? "h-8" : "h-12"
+                  scrolled ? "w-[150px] lg:w-[180px]" : "w-[180px] lg:w-[250px]"
                 }`}
               />
               {scrolled && (
@@ -109,7 +92,7 @@ const Header = () => {
                     }`}
                   >
                     {item.label}
-                    {item.submenu && <ChevronDown className="w-3 h-3" />}
+                    {item.submenu && <CaretDown size={14} />}
                   </a>
                   <AnimatePresence>
                     {item.submenu && activeDropdown === item.label && (
@@ -152,7 +135,7 @@ const Header = () => {
                   className="flex items-center gap-3 text-secondary-foreground/80 hover:text-primary-foreground transition-colors"
                 >
                   <span className="w-10 h-10 rounded-full bg-primary flex items-center justify-center shadow-orange">
-                    <Phone className="w-4 h-4 text-primary-foreground" />
+                    <Phone size={16} className="text-primary-foreground" />
                   </span>
                   <span className="font-sans text-sm font-semibold">
                     Entrar
@@ -176,9 +159,9 @@ const Header = () => {
               }`}
             >
               {mobileOpen ? (
-                <X className="w-6 h-6" />
+                <X size={24} />
               ) : (
-                <Menu className="w-6 h-6" />
+                <List size={24} />
               )}
             </button>
           </div>
@@ -197,24 +180,49 @@ const Header = () => {
                   : "bg-card border-t border-border"
               }`}
             >
-              <nav className="px-6 py-4 flex flex-col gap-2">
+              <nav className="px-6 py-4 flex flex-col gap-1">
                 {navItems.map((item) => (
-                  <a
-                    key={item.label}
-                    href={item.href}
-                    onClick={() => setMobileOpen(false)}
-                    className={`py-2 font-sans text-sm font-medium ${
-                      scrolled
-                        ? "text-secondary-foreground/80 hover:text-primary-foreground"
-                        : "text-foreground hover:text-primary"
-                    }`}
-                  >
-                    {item.label}
-                  </a>
+                  <div key={item.label}>
+                    <a
+                      href={item.href}
+                      onClick={() => {
+                        if (!item.submenu) setMobileOpen(false);
+                        if (item.submenu) setActiveDropdown(activeDropdown === item.label ? null : item.label);
+                      }}
+                      className={`py-3 font-sans text-base font-medium flex items-center justify-between border-b ${
+                        scrolled
+                          ? "text-secondary-foreground/80 hover:text-primary-foreground border-secondary-foreground/10"
+                          : "text-foreground hover:text-primary border-border/50"
+                      }`}
+                    >
+                      {item.label}
+                      {item.submenu && (
+                        <CaretDown size={16} className={`transition-transform ${activeDropdown === item.label ? "rotate-180" : ""}`} />
+                      )}
+                    </a>
+                    {item.submenu && activeDropdown === item.label && (
+                      <div className="pl-4 py-1">
+                        {item.submenu.map((sub) => (
+                          <a
+                            key={sub.label}
+                            href={sub.href}
+                            onClick={() => setMobileOpen(false)}
+                            className={`block py-2 font-sans text-sm ${
+                              scrolled
+                                ? "text-secondary-foreground/60 hover:text-primary-foreground"
+                                : "text-muted-foreground hover:text-primary"
+                            }`}
+                          >
+                            {sub.label}
+                          </a>
+                        ))}
+                      </div>
+                    )}
+                  </div>
                 ))}
                 <a
                   href="https://app.wowmais.com.br/"
-                  className="bg-primary text-primary-foreground px-6 py-2.5 rounded-full font-sans text-sm font-semibold text-center mt-2"
+                  className="bg-primary text-primary-foreground px-6 py-3 rounded-full font-sans text-sm font-semibold text-center mt-4"
                 >
                   Entrar
                 </a>
